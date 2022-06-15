@@ -5,14 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style rel="stylesheet" type="text/css" href="style.css"></style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <button id="button1"> ROCK </button>
-    <button id="button2"> PAPER </button>
-    <button id="button3"> SCISSORS</button>
+    <div class="buttons">
+        <button id="button1">ROCK</button>
+        <button id="button2">PAPER</button>
+        <button id="button3">SCISSORS</button>
+    </div>
 
     <div id="results"></div>
+
+    <div id="roundResults"></div>
+
+    <div id="tallie">
+        <div id = "plyrTallie"> 
+            <p>Player: </p> 
+            <p id="plyrWins"> 0 (placeholder)</p>
+        </div>
+        <div id = "cmptrTallie">  
+            <p>Computer: </p> 
+            <p id="cmptrWins"> 0 (placeholder)</p>
+        </div>
+    </div>
 
 
 

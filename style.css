@@ -1,0 +1,55 @@
+body{
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+}
+
+.buttons{
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    padding: 32px;
+}
+
+#results{
+    padding: 50px;
+    background-color: blue;    
+    color: black;
+    align-items: center;
+    text-align: center;
+}
+
+#tallie {
+    padding: 50px;
+    background-color: red;    
+    color: black;
+    align-items: center;
+    text-align: center;
+
+
+}
+
+#roundResults{
+    padding: 50px;
+    background-color: blueviolet;    
+    color: black;
+    align-items: center;
+    text-align: center;
+
+}
+
+#plyrTallie{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    gap:18px;
+}
+
+#cmptrTallie{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    gap:18px;
+}

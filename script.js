@@ -80,6 +80,8 @@ function playRound(playerSelection, computerSelection){
         outcome = "You Tie! Scissors ties with Scissors";
     } else (outcome ="N/A" + "| plyrSlct: " + plyrSlct + "| cmptrSlct: " + cmptrSlct);
 
+    //Calls function to print round results
+    dsplyRndRslts(outcome);
     //Calls chngTallie and prints new Tallie on screen
     chngTallie(outcome);
 
@@ -115,6 +117,18 @@ function dsplyCmptrSlct(){
 
 }
 
+//Display Round Results
+function dsplyRndRslts(outcome){
+    var rndResultDiv = document.querySelector('#rndResult');
+    var roundResult =document.createElement("p");
+    roundResult.classList.add('rndRslt');
+    rndResultDiv.appendChild(roundResult);
+    var roundResultText = document.createTextNode(outcome);
+    roundResult.appendChild(roundResultText);
+    return outcome;
+}
+
+
 // Change Tallie
 function chngTallie(outcome){
     
@@ -133,13 +147,22 @@ function chngTallie(outcome){
 
 
 var resultsDiv = document.getElementById('results');
+var rndResultDiv = document.getElementById('rndResult');
 
 function rmvDsply(){
+    // Removes Selections Display
     if(resultsDiv.hasChildNodes()){
         var p = document.querySelector('p');
         resultsDiv.removeChild(p);
         var p = document.querySelector('p');
         resultsDiv.removeChild(p);
+    } else {
+        return;
+    } 
+    // Removes Round Results Display
+    if(rndResultDiv.hasChildNodes()){
+        var rr = document.querySelector('.rndRslt');
+        rndResultDiv.removeChild(rr);
     } else {
         return;
     }

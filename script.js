@@ -47,6 +47,10 @@ buttons.forEach((button) => {
     //Whatever button was clicked gets passed to the first parameter. In this case playerSelection
 function playRound(playerSelection, computerSelection){
 
+    cmptrWins.innerHTML = pcWins;
+    plyrWins.innerHTML = wins;
+
+    
     //Removes previously displayed picks
     rmvDsply();
 
@@ -142,7 +146,45 @@ function chngTallie(outcome){
         cmptrWins.innerHTML = pcWins;
     } else return;
 
-    let plyrWins = document.querySelector('#plyrWins');
+    declareWinner();
+}
+
+function declareWinner(){
+    if((wins == 5) || (pcWins == 5)){
+        if(wins > pcWins){
+            console.log("You win  " + wins+ " to " + pcWins + "!");
+            var winnerRsltText = document.createTextNode("You win  " + wins+ " to " + pcWins + "!")
+        } else if(pcWins > wins){
+            console.log("You lose  " + pcWins+ " to " + wins + "!");
+            var winnerRsltText = document.createTextNode("You lose  " + pcWins+ " to " + wins + "!")
+
+        } else return;
+
+        wins = 0;
+        pcWins = 0;
+
+        var body = document.querySelector('body');
+        var tallie = document.querySelector('#tallie');
+        var buttons = document.querySelector('.buttons');
+        body.removeChild(resultsDiv);
+        body.removeChild(rndResultDiv);
+        body.removeChild(tallie);
+        body.removeChild(buttons);
+
+        var winnerRslt = document.createElement("p");
+        winnerRslt.classList.add('winnerRslt');
+        body.append(winnerRslt);
+        winnerRslt.append(winnerRsltText);
+        winnerRslt.style.color = "white";
+        winnerRslt.style.fontSize = "70px";
+        winnerRslt.style.textAlign = "center";
+        winnerRslt.style.height = '100%';
+        winnerRslt.style.display = "flex";
+        winnerRslt.style.justifyContent = 'center';
+        winnerRslt.style.alignItems = 'center';
+
+        
+    } else return;
 }
 
 
@@ -209,32 +251,38 @@ function gameResult(){
     return gmresult;
 }
 
+
+
+
+
+
+//DELETE LATER? 
 //5 Round game
-function game(){
+// function game(){
 
-    //Call playRound 5 times via loop, and store results to each round aswell as keep counter of W,L,T
-    for (let i=0; i<5; i++){
+//     //Call playRound 5 times via loop, and store results to each round aswell as keep counter of W,L,T
+//     for (let i=0; i<5; i++){
 
-        playerSelectionFunct(); //New Player Selection
-        computerPlay(); // New PC Selection
+//         playerSelectionFunct(); //New Player Selection
+//         computerPlay(); // New PC Selection
 
-        roundResults.push(playRound(playerSelection, computerSelection))
-        console.log("Round " + (i+1));
-        console.log("PC Selection: " + computerSelection);
-        console.log("Player Selection: " + playerSelection);
-        console.log(roundResults[i]);
-        //call win,loss & tie counters
-        console.log("wins: " + winCounter());
-        console.log("pcWins: " + lossCounter());
-        console.log("ties: " + tieCounter());
-        console.log("---------------")
-        computerSelection = computerPlay(); //Change computer selection after round
-    }
+//         roundResults.push(playRound(playerSelection, computerSelection))
+//         console.log("Round " + (i+1));
+//         console.log("PC Selection: " + computerSelection);
+//         console.log("Player Selection: " + playerSelection);
+//         console.log(roundResults[i]);
+//         //call win,loss & tie counters
+//         console.log("wins: " + winCounter());
+//         console.log("pcWins: " + lossCounter());
+//         console.log("ties: " + tieCounter());
+//         console.log("---------------")
+//         computerSelection = computerPlay(); //Change computer selection after round
+//     }
 
-    let gameBreakdown = ("Wins: " + wins + " | pcWins: " + pcWins + " | Ties: " + ties);
-    console.log(gameBreakdown);
-    console.log(gameResult()); //calls gameResult funct. Which is the total 5 round game outcome
-}
+//     let gameBreakdown = ("Wins: " + wins + " | pcWins: " + pcWins + " | Ties: " + ties);
+//     console.log(gameBreakdown);
+//     console.log(gameResult()); //calls gameResult funct. Which is the total 5 round game outcome
+// }
 
 
 // game(); //CALL GAME

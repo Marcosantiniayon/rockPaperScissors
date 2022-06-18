@@ -2,6 +2,8 @@ body{
     background-color: black;
     display: flex;
     flex-direction: column;
+    /* justify-content: center; */
+    height: 100vh;
 }
 
 .buttons{
@@ -25,8 +27,6 @@ body{
     color: black;
     align-items: center;
     text-align: center;
-
-
 }
 
 #rndResult{
